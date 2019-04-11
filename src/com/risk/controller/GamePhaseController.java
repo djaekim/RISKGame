@@ -263,7 +263,7 @@ public class GamePhaseController implements Observer, Initializable
         	        	
     	        		PlayerPhaseModel.getPlayerModel().getCurrentPlayer().getStrategy().setup(PlayerPhaseModel.getPlayerModel().getCurrentPlayer());
     	        		PlayerPhaseModel.getPlayerModel().setNextPlayer();
-    	        		GamePhaseModel.getGamePhaseModel().setPhase("setup complete");
+//    	        		GamePhaseModel.getGamePhaseModel().setPhase("setup complete");
     	        		GamePhaseModel.getGamePhaseModel().setPhase("setup");
         	        }	        		
 	             } 

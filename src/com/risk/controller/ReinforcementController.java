@@ -188,6 +188,7 @@ public class ReinforcementController implements Initializable
                 TotalReinforcement += reinforcementFromCards;
                 armyAvailable.setText(
                         "Army: " + Integer.toString(TotalReinforcement));
+                ActionModel.getActionModel().addAction("got " + reinforcementFromCards + " army");
 
                 if (PlayerPhaseModel.getPlayerModel().getCurrentPlayer().getCards().size() < 3)
                 {

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPane" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Pane fx:id="mainPane" layoutX="14.0" layoutY="16.0" prefHeight="27.0" prefWidth="200.0">
             <children>
@@ -24,7 +24,7 @@
             <Button fx:id="newID" layoutX="1199.0" layoutY="516.0" mnemonicParsing="false" onAction="#newGame" text="New Game" />
             </children>
         </AnchorPane>
-      <AnchorPane fx:id="phaseDominationViewID" layoutX="672.0" layoutY="6.0" prefHeight="590.0" prefWidth="653.0" visible="false">
+      <AnchorPane fx:id="phaseDominationViewID" layoutX="672.0" layoutY="6.0" prefHeight="778.0" prefWidth="653.0" visible="false">
          <children>
               <ListView fx:id="worldDomination3" layoutX="35.0" layoutY="376.0" prefHeight="200.0" prefWidth="230.0" />
               <TextField fx:id="phaseID" editable="false" layoutX="38.0" layoutY="44.0" />
@@ -32,7 +32,7 @@
             <Button fx:id="saveID" layoutX="38.0" mnemonicParsing="false" onAction="#saveProgress" text="Save Progress" visible="false" />
               <ListView fx:id="actionMessage" layoutX="35.0" layoutY="124.0" prefHeight="211.0" prefWidth="230.0" />
               <Label layoutX="38.0" layoutY="346.0" text="Continent Control" />
-              <BarChart fx:id="worldDomination2" animated="false" layoutX="278.0" layoutY="7.0" legendVisible="false" prefHeight="265.0" prefWidth="361.0" title="Army count">
+              <BarChart fx:id="worldDomination2" animated="false" layoutX="254.0" layoutY="7.0" legendVisible="false" prefHeight="341.0" prefWidth="385.0" title="Army count">
                   <xAxis>
                       <CategoryAxis fx:id="X1" animated="false" label="player" side="BOTTOM" />
                   </xAxis>
@@ -40,7 +40,7 @@
                       <NumberAxis fx:id="y1" animated="false" label="army" side="LEFT" />
                   </yAxis>
               </BarChart>
-              <PieChart fx:id="worldDomination1" animated="false" layoutX="313.0" layoutY="304.0" prefHeight="272.0" prefWidth="326.0" title="Percentage" />
+              <PieChart fx:id="worldDomination1" animated="false" labelsVisible="false" layoutX="269.0" layoutY="392.0" prefHeight="382.0" prefWidth="376.0" title="Percentage" />
          </children>
       </AnchorPane> 
       <AnchorPane fx:id="savePane" layoutX="1029.0" layoutY="103.0" prefHeight="294.0" prefWidth="230.0" visible="false">

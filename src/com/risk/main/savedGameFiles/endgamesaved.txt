@@ -1,0 +1,19 @@
+NAME OF MAP FILE
+endgame
+SET PLAYER ORDER AND CARDS
+AggressivePlayer1,AggressivePlayer,Cavalry
+HumanPlayer2,HumanPlayer
+BenevolentPlayer3,BenevolentPlayer
+CheaterPlayer4,CheaterPlayer
+RandomPlayer5,RandomPlayer
+SET PLAYERS AND ARMY IN COUNTRY
+Alaska,CheaterPlayer4,50
+Argentina,CheaterPlayer4,2
+Southern Europe,AggressivePlayer1,1
+North Africa,AggressivePlayer1,3
+Siam,HumanPlayer2,24
+Indonesia,AggressivePlayer1,4
+CURRENT PHASE
+reinforcement
+CURRENT PLAYER
+HumanPlayer2

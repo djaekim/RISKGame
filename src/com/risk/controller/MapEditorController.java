@@ -394,7 +394,7 @@ public class MapEditorController implements Initializable
         String inputFileName = ExistingFile.getText();
        
         if (!ExistingFile.getText().trim().isEmpty() && LoadGame.generate(ExistingFile.getText())) {
-        	 actions.addAction("Loaded save map");
+
         }
         else if (!ExistingFile.getText().trim().isEmpty() && new File(inputFile).isFile())
         {

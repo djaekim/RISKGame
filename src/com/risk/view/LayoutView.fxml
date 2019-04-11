@@ -40,13 +40,13 @@
                       <NumberAxis fx:id="y1" animated="false" label="army" side="LEFT" />
                   </yAxis>
               </BarChart>
-              <PieChart fx:id="worldDomination1" animated="false" labelsVisible="false" layoutX="269.0" layoutY="392.0" prefHeight="382.0" prefWidth="376.0" title="Percentage" />
+              <PieChart fx:id="worldDomination1" animated="false" labelsVisible="false" layoutX="271.0" layoutY="304.0" prefHeight="470.0" prefWidth="374.0" title="Percentage" />
          </children>
-      </AnchorPane> 
+      </AnchorPane>
       <AnchorPane fx:id="savePane" layoutX="1029.0" layoutY="103.0" prefHeight="294.0" prefWidth="230.0" visible="false">
           <children>
               <fx:include fx:id="save" source="SaveProgress.fxml" />
           </children>
-      </AnchorPane> 
+      </AnchorPane>
     </children>
 </AnchorPane>

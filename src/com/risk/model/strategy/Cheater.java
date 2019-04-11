@@ -14,7 +14,8 @@ import com.risk.model.ActionModel;
 import com.risk.model.map.Country;
 import com.risk.model.player.Player;
 
-public class Cheater implements Strategy{
+public class Cheater implements Strategy
+{
 	
 	/**
 	 * This method is used to do the attack for cheater player
@@ -23,7 +24,8 @@ public class Cheater implements Strategy{
 	 * @param p The player who is going to attack
 	 */
 	@Override
-	public void attack(Player p) {
+	public void attack(Player p) 
+	{
 		
 		ActionModel.getActionModel().addAction("======= Rule =======");
 		ActionModel.getActionModel().addAction("conquers all neighbouring");
@@ -37,7 +39,8 @@ public class Cheater implements Strategy{
             for (Country cNeighbors : c.getConnectedEnemyArrayList())
             {
             	cNeighbors.getRuler().removeCountry(cNeighbors);
-				if (cNeighbors.getRuler().getOccupiedCountries().size()==0) {
+				if (cNeighbors.getRuler().getOccupiedCountries().size()==0) 
+				{
 					cNeighbors.getRuler().setPlayerLost(true);
 					p.moveCards(cNeighbors.getRuler());
 					System.out.println(cNeighbors.getRuler()+" lost");
@@ -51,7 +54,8 @@ public class Cheater implements Strategy{
 				System.out.println(c.getName()+" conquers "+cNeighbors.getName());
             }
         }
-		for(Country c: conquer) {
+		for(Country c: conquer) 
+		{
 			p.addCountry(c);
 		}
 	}
@@ -63,7 +67,8 @@ public class Cheater implements Strategy{
 	 * @param p The player who is going to reinforce
 	 */
 	@Override
-	public void reinforce(Player p) {
+	public void reinforce(Player p) 
+	{
 		
 		ActionModel.getActionModel().addAction("======= Rule =======");
 		ActionModel.getActionModel().addAction("doubles all army");
@@ -85,7 +90,8 @@ public class Cheater implements Strategy{
 	 * @param p The player who is going to fortify
 	 */
 	@Override
-	public void fortify(Player p) {
+	public void fortify(Player p) 
+	{
 		
 		ActionModel.getActionModel().addAction("======= Rule =======");
 		ActionModel.getActionModel().addAction("Doubles army on country");
@@ -93,7 +99,8 @@ public class Cheater implements Strategy{
 		ActionModel.getActionModel().addAction("==================");
 		for (Country c : p.getOccupiedCountries())
         {
-			if(!c.getConnectedEnemyArrayList().isEmpty()) {
+			if(!c.getConnectedEnemyArrayList().isEmpty()) 
+			{
 				int army = c.getArmyCount();
 				c.setArmyCount(army);
 				ActionModel.getActionModel().addAction("added " + (army) + " to " + c.getName() + "(" + army + ")");
@@ -120,7 +127,8 @@ public class Cheater implements Strategy{
 	 * @param p The player who is going to set up
 	 */
 	@Override
-	public void setup(Player p) {
+	public void setup(Player p) 
+	{
 		if (p.getStartingPoints() == 0)
 		{
 			return;
@@ -132,7 +140,8 @@ public class Cheater implements Strategy{
 			ActionModel.getActionModel().addAction("- Cheater randomly assigns army");
 			ActionModel.getActionModel().addAction("==================");
 			int army = p.getStartingPoints();
-			for(int i=0; i<army; i++) {
+			for(int i=0; i<army; i++) 
+			{
 				Country random = p.getOccupiedCountries().get(getRandomNumber(p.getOccupiedCountries().size()));
 		        random.setArmyCount(1);
 			}
@@ -147,7 +156,8 @@ public class Cheater implements Strategy{
 	 * @param armyInput The number of armies to move
 	 */
 	@Override
-	public void conquer(Country c1, Country c2, int armyInput) {
+	public void conquer(Country c1, Country c2, int armyInput) 
+	{
 		c2.setArmyCount(armyInput);
 	}
 

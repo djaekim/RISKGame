@@ -15,7 +15,8 @@ import com.risk.model.DeckModel;
 import com.risk.model.map.Country;
 import com.risk.model.player.Player;
 
-public class Random implements Strategy {
+public class Random implements Strategy 
+{
 	/**
 	 * This method is used to do the attack for cheater player The cheater player
 	 * occupies all his neighbor enemies and put one army to each new occupied
@@ -24,19 +25,23 @@ public class Random implements Strategy {
 	 * @param p The player who is going to attack
 	 */
 	@Override
-	public void attack(Player p) {
+	public void attack(Player p) 
+	{
 
 		ActionModel.getActionModel().addAction("======= Rule =======");
 		ActionModel.getActionModel().addAction("attacks random number ");
 		ActionModel.getActionModel().addAction(" of times random country");
 		ActionModel.getActionModel().addAction("==================");
 		ArrayList<Country> countryWithEnoughArmy = new ArrayList<Country>();
-		for (Country c : p.getOccupiedCountries()) {
-			if (c.getArmyCount() > 1 && (!c.getConnectedEnemyArrayList().isEmpty())) {
+		for (Country c : p.getOccupiedCountries()) 
+		{
+			if (c.getArmyCount() > 1 && (!c.getConnectedEnemyArrayList().isEmpty())) 
+			{
 				countryWithEnoughArmy.add(c);
 			}
 		}
-		if (!countryWithEnoughArmy.isEmpty()) {
+		if (!countryWithEnoughArmy.isEmpty()) 
+		{
 			Country attack = countryWithEnoughArmy.get(getRandomNumber(countryWithEnoughArmy.size()));
 			Country defend = attack.getConnectedEnemyArrayList()
 					.get(getRandomNumber(attack.getConnectedEnemyArrayList().size()));
@@ -56,15 +61,19 @@ public class Random implements Strategy {
 				int[] dattack = p.rollResult(randomAttack);
 				int[] ddefend = p.rollResult(randomDefend);
 				int rolltime = Integer.min(randomAttack, randomDefend);
-				for (int i = 0; i < rolltime; i++) {
-					if (dattack[i] > ddefend[i]) {
+				for (int i = 0; i < rolltime; i++) 
+				{
+					if (dattack[i] > ddefend[i]) 
+					{
 						p.attack(attack, defend, 1);
 						System.out.println("removed " + 1 + " from " + defend.getName());
-						if (defend.getArmyCount() == 0) {
+						if (defend.getArmyCount() == 0) 
+						{
 							System.out.println(
 									p.getName() + " conquer " + defend.getRuler().getName() + " " + defend.getName());
 							defend.getRuler().removeCountry(defend);
-							if (defend.getRuler().getOccupiedCountries().size() == 0) {
+							if (defend.getRuler().getOccupiedCountries().size() == 0) 
+							{
 								defend.getRuler().setPlayerLost(true);
 								ActionModel.getActionModel().addAction("defender (" + defend.getRuler() + ") lost");
 								System.out.println(defend.getRuler() + " lost");
@@ -76,7 +85,8 @@ public class Random implements Strategy {
 							conquer(attack, defend, result[0]);
 							break;
 						}
-					} else {
+					} else 
+					{
 						p.attack(attack, defend, 3);
 						System.out.println("attacker lost 1 army");
 						ActionModel.getActionModel().addAction(attack.getName() + " lost 1 army");
@@ -100,13 +110,15 @@ public class Random implements Strategy {
 	 * @param p The player who is going to reinforce
 	 */
 	@Override
-	public void reinforce(Player p) {
+	public void reinforce(Player p) 
+	{
 		ActionModel.getActionModel().addAction("======= Rule =======");
 		ActionModel.getActionModel().addAction("fortifies a random ");
 		ActionModel.getActionModel().addAction(" 	 country");
 		ActionModel.getActionModel().addAction("==================");
 		int Armyinput = getRandomNumber(70) + 1;
-		if (p.exchangeCardForComputer()) {
+		if (p.exchangeCardForComputer()) 
+		{
 			Armyinput += p.calculateReinforcementFromCards();
 		}
 		Country random = p.getOccupiedCountries().get(getRandomNumber(p.getOccupiedCountries().size()));
@@ -123,7 +135,8 @@ public class Random implements Strategy {
 	 * @param limit The limit of numbers, like the amount of armies
 	 * @return The random number 
 	 */
-	public int getRandomNumber(int limit) {
+	public int getRandomNumber(int limit) 
+	{
 		return (int) (Math.random() * limit);
 	}
 
@@ -135,7 +148,8 @@ public class Random implements Strategy {
 	 * @param p The player who is going to fortify
 	 */
 	@Override
-	public void fortify(Player p) {
+	public void fortify(Player p) 
+	{
 
 		ActionModel.getActionModel().addAction("======= Rule =======");
 		ActionModel.getActionModel().addAction("Fortifies at random a ");
@@ -144,11 +158,14 @@ public class Random implements Strategy {
 		ArrayList<Country> countriesHaveConnectedPath = new ArrayList<Country>();
 		ArrayList<Country> fortify = new ArrayList<Country>();
 		System.out.println(p.isAnyCountriesConnected());
-		if (p.isAnyCountriesConnected()) {
-			for (Country c : p.getOccupiedCountries()) {
+		if (p.isAnyCountriesConnected()) 
+		{
+			for (Country c : p.getOccupiedCountries()) 
+			{
 				ArrayList<Country> connected = new ArrayList<Country>();
 				connected = p.getCountriesArrivedbyPath(c, c, connected);
-				if (!connected.isEmpty() && c.getArmyCount() > 1) {
+				if (!connected.isEmpty() && c.getArmyCount() > 1) 
+				{
 					countriesHaveConnectedPath.add(c);
 				}
 
@@ -164,7 +181,8 @@ public class Random implements Strategy {
 					" move " + armyInput + " army from " + randomFrom.getName() + " to " + randomTo.getName());
 			System.out.println(p.getName() + ": move " + armyInput + " army from " + randomFrom.getName() + " to "
 					+ randomTo.getName());
-		} else {
+		} else 
+		{
 			ActionModel.getActionModel().addAction("No connection, can't reinforce");
 		}
 
@@ -177,16 +195,20 @@ public class Random implements Strategy {
 	 * @param p The player who is going to setup
 	 */
 	@Override
-	public void setup(Player p) {
-		if (p.getStartingPoints() == 0) {
+	public void setup(Player p) 
+	{
+		if (p.getStartingPoints() == 0) 
+		{
 			return;
-		} else {
+		} else 
+		{
 			ActionModel.getActionModel().addAction("");
 			ActionModel.getActionModel().addAction("======= Rule =======");
 			ActionModel.getActionModel().addAction("- Random adds army randomly");
 			ActionModel.getActionModel().addAction("==================");
 			int army = p.getStartingPoints();
-			for (int i = 0; i < army; i++) {
+			for (int i = 0; i < army; i++) 
+			{
 				Country random = p.getOccupiedCountries().get(getRandomNumber(p.getOccupiedCountries().size()));
 				random.setArmyCount(1);
 			}
@@ -202,7 +224,8 @@ public class Random implements Strategy {
 	 * @param armyInput The number of armies to move
 	 */
 	@Override
-	public void conquer(Country c1, Country c2, int armyInput) {
+	public void conquer(Country c1, Country c2, int armyInput) 
+	{
 		// TODO Auto-generated method stub
 		int army = c1.getArmyCount() - 1 -armyInput;
 		int armyinput = armyInput + getRandomNumber(army);
@@ -214,5 +237,4 @@ public class Random implements Strategy {
 		System.out.println(
 				p.getName() + ": " + c1.getName() + " conquers " + c2.getName());
 	}
-
 }

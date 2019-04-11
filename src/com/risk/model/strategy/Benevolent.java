@@ -15,7 +15,8 @@ import com.risk.model.map.Country;
 import com.risk.model.player.Player;
 
 
-public class Benevolent implements Strategy {
+public class Benevolent implements Strategy 
+{
 	/**
 	 * This method is used to do the attack for benevolent player
 	 * The benevolent player doesn't do the attack
@@ -23,7 +24,8 @@ public class Benevolent implements Strategy {
 	 * @param p The player who is going to attack
 	 */
 	@Override
-	public void attack(Player p) {
+	public void attack(Player p) 
+	{
 		ActionModel.getActionModel().addAction("======= Rule =======");
 		ActionModel.getActionModel().addAction("skips attack");
 		ActionModel.getActionModel().addAction("==================");
@@ -36,7 +38,8 @@ public class Benevolent implements Strategy {
 	 * @param p The player who is going to reinforce
 	 */
 	@Override
-	public void reinforce(Player p) {
+	public void reinforce(Player p) 
+	{
 		
 		ActionModel.getActionModel().addAction("======= Rule =======");
 		ActionModel.getActionModel().addAction("reinforce weakest");
@@ -45,7 +48,8 @@ public class Benevolent implements Strategy {
 		ArrayList<Country> weakestCountries = p.getWeakestCountries();
 		int Armyinput = p.getReinforcementArmy();
 
-		if (weakestCountries.size() == 1) {
+		if (weakestCountries.size() == 1) 
+		{
 			
 			int initialArmy = weakestCountries.get(0).getArmyCount();
 			weakestCountries.get(0).setArmyCount(Armyinput);
@@ -54,14 +58,17 @@ public class Benevolent implements Strategy {
 			return;
 		}
 		int army = Armyinput;
-		while (army > 0) {
-			for (Country c : weakestCountries) {
+		while (army > 0) 
+		{
+			for (Country c : weakestCountries) 
+			{
 				int initialArmy = c.getArmyCount();
 				c.setArmyCount(1);
 				ActionModel.getActionModel().addAction("added " + 1 + " to " + c.getName() + "(" + initialArmy + ")");
 				System.out.println(p.getName()+":added " + 1 + " to " + c.getName() + "(" + initialArmy + ")");
 				army--;
-				if (army == 0) {
+				if (army == 0) 
+				{
 					return;
 				}
 			}
@@ -76,7 +83,8 @@ public class Benevolent implements Strategy {
 	 */
 	
 	@Override
-	public void fortify(Player p) {
+	public void fortify(Player p) 
+	{
 		
 		ActionModel.getActionModel().addAction("======= Rule =======");
 		ActionModel.getActionModel().addAction("fortify weakest");
@@ -87,13 +95,18 @@ public class Benevolent implements Strategy {
 		int Armyinput=0;
 		ArrayList<Country> fortify = new ArrayList<Country>();
 		System.out.println(p.isAnyCountriesConnected());
-		if(p.isAnyCountriesConnected()) {
-			for(Country c: weakestCountries) {
+		if(p.isAnyCountriesConnected()) 
+		{
+			for(Country c: weakestCountries) 
+			{
 				ArrayList<Country> connected = new ArrayList<Country>();
 				connected = p.getCountriesArrivedbyPath(c, c, connected);
-				if(!connected.isEmpty()) {
-					for(Country connect : connected) {
-						if(connect.getArmyCount()>1&&connect.getArmyCount()>Armyinput) {
+				if(!connected.isEmpty()) 
+				{
+					for(Country connect : connected) 
+					{
+						if(connect.getArmyCount()>1&&connect.getArmyCount()>Armyinput) 
+						{
 							Armyinput = connect.getArmyCount();
 							fortify.clear();
 							fortify.add(c);
@@ -103,13 +116,15 @@ public class Benevolent implements Strategy {
 				}
 				
 			}
-			if(fortify.size()==0) {
+			if(fortify.size()==0) 
+			{
 				ActionModel.getActionModel().addAction("Weakest country doesn't ");
 				ActionModel.getActionModel().addAction("  have enough army");
 				ActionModel.getActionModel().addAction("  for fortification ");
 				return;
 			}
-			else {
+			else 
+			{
 				
 				ActionModel.getActionModel().addAction(" move " + (Armyinput-1) + " army from ");
 				ActionModel.getActionModel().addAction("       " +  fortify.get(1).getName() + "(" + fortify.get(1).getArmyCount() + ")"+ " to ");
@@ -128,23 +143,28 @@ public class Benevolent implements Strategy {
 	 * @param p The player who is going to setup
 	 */
 	@Override
-	public void setup(Player p) {
+	public void setup(Player p) 
+	{
 		if (p.getStartingPoints() == 0)
 		{
 			return;
 			
 		}
-		else {
+		else 
+		{
 			ActionModel.getActionModel().addAction("");
 			ActionModel.getActionModel().addAction("======= Rule =======");
 			ActionModel.getActionModel().addAction("- Benevolent distributes army evenly");
 			ActionModel.getActionModel().addAction("==================");
 			int army = p.getStartingPoints();
-			while (army > 0) {
-				for (Country c : p.getOccupiedCountries()) {
+			while (army > 0) 
+			{
+				for (Country c : p.getOccupiedCountries()) 
+				{
 					c.setArmyCount(1);
 					army--;
-					if (army == 0) {
+					if (army == 0) 
+					{
 						p.setStartingPoints(0);
 						return;
 					}
@@ -160,7 +180,8 @@ public class Benevolent implements Strategy {
 	 * @param armyInput The number of armies to move
 	 */
 	@Override
-	public void conquer(Country c1, Country c2, int armyInput) {
+	public void conquer(Country c1, Country c2, int armyInput) 
+	{
 		// TODO Auto-generated method stub
 		
 	}

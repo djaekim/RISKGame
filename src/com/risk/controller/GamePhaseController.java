@@ -263,7 +263,6 @@ public class GamePhaseController implements Observer, Initializable
         	        	
     	        		PlayerPhaseModel.getPlayerModel().getCurrentPlayer().getStrategy().setup(PlayerPhaseModel.getPlayerModel().getCurrentPlayer());
     	        		PlayerPhaseModel.getPlayerModel().setNextPlayer();
-//    	        		GamePhaseModel.getGamePhaseModel().setPhase("setup complete");
     	        		GamePhaseModel.getGamePhaseModel().setPhase("setup");
         	        }	        		
 	             } 
@@ -343,7 +342,7 @@ public class GamePhaseController implements Observer, Initializable
             {
                 if (PlayerPhaseModel.getPlayerModel().getCurrentPlayer().isComputerPlayer())
                 {
-                	
+                	saveID.setVisible(false);
                 	ActionModel.getActionModel().addAction("  ");
                 	
       			 	ActionModel.getActionModel().addAction("{{ CPU is reinforcing }}");
@@ -360,7 +359,7 @@ public class GamePhaseController implements Observer, Initializable
                 }  
                 else 
                 {
-                	  
+                	  saveID.setVisible(true);
                 	  ActionModel.getActionModel().addAction("  ");
                 	  ActionModel.getActionModel().addAction("Reinforce Start:");
             		  ActionModel.getActionModel().addAction("======= Rule =======");
@@ -396,6 +395,7 @@ public class GamePhaseController implements Observer, Initializable
 	      		 }
 	      		 else if (PlayerPhaseModel.getPlayerModel().getCurrentPlayer().isComputerPlayer())
                  {
+	      		          saveID.setVisible(false);
 	      			      ActionModel.getActionModel().addAction("  ");
 	      			 
 	      			 	  ActionModel.getActionModel().addAction("{{ CPU is attacking }}");
@@ -412,6 +412,7 @@ public class GamePhaseController implements Observer, Initializable
                  }
             	 else 
             	 {
+            		  saveID.setVisible(true);
             	      ActionModel.getActionModel().addAction("  ");
             		  ActionModel.getActionModel().addAction("Attack Start:");
             		  ActionModel.getActionModel().addAction("======= Rule =======");
@@ -449,9 +450,10 @@ public class GamePhaseController implements Observer, Initializable
 	      		 }
             	 else if (PlayerPhaseModel.getPlayerModel().getCurrentPlayer().isComputerPlayer())
                  {
+            		  saveID.setVisible(false);
             		  ActionModel.getActionModel().addAction("  ");
      			 	  
-     			 	 ActionModel.getActionModel().addAction("{{ CPU is fortifying }}");
+     			 	  ActionModel.getActionModel().addAction("{{ CPU is fortifying }}");
             		  phaseID.setText(view);
                       playerID.setText(PlayerPhaseModel.getPlayerModel().getCurrentPlayer().getName());
                       mainPane.getChildren().clear();
@@ -466,6 +468,7 @@ public class GamePhaseController implements Observer, Initializable
                  }
             	 else 
             	 {
+            	      saveID.setVisible(true);
             		  ActionModel.getActionModel().addAction("  ");
             	      ActionModel.getActionModel().addAction("Fortify Start:");
             	      ActionModel.getActionModel().addAction("======= Rule =======");
@@ -609,6 +612,7 @@ public class GamePhaseController implements Observer, Initializable
 
             if (index == -1)
             {
+            	
                 barPlayersList.add(player);
                 serie.getData().add(new XYChart.Data<String, Integer>(player.getName() + " (" + player.getTotalArmy() + ")", (int) player.getTotalArmy()));
             }

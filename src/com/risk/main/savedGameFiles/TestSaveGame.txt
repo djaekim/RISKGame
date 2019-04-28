@@ -2,27 +2,27 @@ NAME OF MAP FILE
 valid1
 SET PLAYER ORDER AND CARDS
 Player6,Player
-Player5,Player,Artillery,Cavalry,Cavalry,Infantry,Artillery
+Player5,Player,Cavalry,Artillery
 Player4,Player,Artillery,Artillery,Artillery,Cavalry,Cavalry
 Player3,Player,Cavalry,Cavalry,Artillery,Infantry,Cavalry
 Player2,Player,Wild,Artillery,Artillery,Infantry,Infantry
 Player1,Player,Infantry,Infantry,Cavalry,Cavalry,Infantry
 SET PLAYERS AND ARMY IN COUNTRY
-Alaska,Player5,3
+Alaska,Player5,2
 Northwest Territory,Player5,2
 Greenland,Player6,3
 Alberta,Player1,3
 Ontario,Player5,3
 Quebec,Player2,4
-Western United States,Player6,2
+Western United States,Player6,3
 Eastern United States,Player1,4
-Central America,Player6,12
+Central America,Player6,11
 Venezuela,Player3,3
 Peru,Player2,2
 Brazil,Player6,3
 Argentina,Player3,3
 Iceland,Player2,4
-Scandinavia,Player5,3
+Scandinavia,Player5,11
 Ukraine,Player6,4
 Great Britian,Player2,2
 Northern Europe,Player4,3
@@ -51,6 +51,6 @@ New Guinea,Player6,1
 Western Australia,Player5,1
 Eastern Australia,Player4,3
 CURRENT PHASE
-fortification
+reinforcement
 CURRENT PLAYER
-Player6
+Player4

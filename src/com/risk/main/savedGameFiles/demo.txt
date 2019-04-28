@@ -1,0 +1,53 @@
+NAME OF MAP FILE
+input
+SET PLAYER ORDER AND CARDS
+BenevolentPlayer3,BenevolentPlayer
+HumanPlayer1,HumanPlayer
+AggressivePlayer2,AggressivePlayer
+SET PLAYERS AND ARMY IN COUNTRY
+Alaska,BenevolentPlayer3,2
+Northwest Territory,HumanPlayer1,3
+Greenland,HumanPlayer1,2
+Alberta,AggressivePlayer2,2
+Ontario,HumanPlayer1,4
+Quebec,AggressivePlayer2,3
+Western United States,AggressivePlayer2,2
+Eastern United States,AggressivePlayer2,1
+Central America,AggressivePlayer2,2
+Venezuela,AggressivePlayer2,2
+Peru,BenevolentPlayer3,6
+Brazil,AggressivePlayer2,3
+Argentina,BenevolentPlayer3,2
+Iceland,BenevolentPlayer3,2
+Scandinavia,BenevolentPlayer3,4
+Ukraine,HumanPlayer1,4
+Great Britian,AggressivePlayer2,4
+Northern Europe,AggressivePlayer2,2
+Southern Europe,HumanPlayer1,1
+Western Europe,AggressivePlayer2,2
+North Africa,AggressivePlayer2,3
+Egypt,HumanPlayer1,3
+East Africa,AggressivePlayer2,3
+Congo,BenevolentPlayer3,2
+South Africa,BenevolentPlayer3,1
+Madagascar,BenevolentPlayer3,2
+Siam,HumanPlayer1,3
+India,HumanPlayer1,5
+China,HumanPlayer1,3
+Mongolia,BenevolentPlayer3,2
+Japan,HumanPlayer1,4
+Irkutsk,BenevolentPlayer3,3
+Yakutsk,BenevolentPlayer3,2
+Kamchatka,HumanPlayer1,2
+Siberia,HumanPlayer1,1
+Afghanistan,HumanPlayer1,1
+Ural,HumanPlayer1,2
+Middle East,BenevolentPlayer3,1
+Indonesia,AggressivePlayer2,2
+New Guinea,BenevolentPlayer3,2
+Western Australia,BenevolentPlayer3,7
+Eastern Australia,AggressivePlayer2,4
+CURRENT PHASE
+attack
+CURRENT PLAYER
+HumanPlayer1

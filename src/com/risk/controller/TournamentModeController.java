@@ -147,6 +147,7 @@ public class TournamentModeController implements Initializable
 			{
 				
 				
+				hiscoreObservableList.clear();
 				turns = Integer.parseInt(numberTurnsID.getText());
 				games = numberGamesID.getSelectionModel().getSelectedItem();
 				
